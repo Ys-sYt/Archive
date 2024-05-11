@@ -11,8 +11,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 QuickRoute: resolve(root, 'QuickRoute', 'index.html'),
-                
-                RouteCheck: resolve(root, 'RouteCheck', 'index.html'),
+                root: resolve(root, 'index.html'),
+                RouteCheck: resolve(root, 'RouteView', 'index.html'),
             }
         }
     }
