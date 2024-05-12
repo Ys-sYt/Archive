@@ -180,7 +180,7 @@ map.on('load', () => {
         ['get', 'standing'],
         1, '#ff1493',
         2, '#0000cd',
-        3, '#ff8c00',
+        3, '#d2691e',
       ],
       'line-dasharray': [3, 3],
     },
