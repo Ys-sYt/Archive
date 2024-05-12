@@ -47,7 +47,7 @@ map.addControl(
 
 //courseCoordinates
 const courseCoordinates = {
-  r3_1: [
+  m21a: [
     [141.38184001, 43.03118843], //43.03118843,141.38184001
     [141.38179477, 43.03050698], //43.03050698,141.38179477
     [141.38223947, 43.03084647], //43.03084647,141.38223947
@@ -73,7 +73,7 @@ const courseCoordinates = {
     [141.38151762, 43.03023518],
     [141.38133067, 43.03112553]
   ],
-  r3_2: [
+  w21a: [
     [141.38184001, 43.03118843], //43.03118843,141.38184001
     [141.38179477, 43.03050698], //43.03050698,141.38179477
     [141.38223947, 43.03084647], //43.03084647,141.38223947
@@ -103,13 +103,13 @@ const courseCoordinates = {
 
 map.on('load', () => {
   //地図追加
-  map.addSource('r3_1', {
+  map.addSource('m21a', {
     type: "image",
     url: "../public/maps/M21A.png",
     coordinates: mapcoord,
   });
 
-  map.addSource('r3_2', {
+  map.addSource('w21a', {
     type: "image",
     url: "../public/maps/A.png",
     coordinates: mapcoord
@@ -127,19 +127,19 @@ map.on('load', () => {
     coordinates: mapcoord
   });
 
-  map.addLayer({id: "r3_1", source: "r3_1", type: "raster", paint: {}, style: {}});
-  map.addLayer({id: "r3_2", source: "r3_2", type: "raster", paint: {}, style: {}, "layout": {'visibility': 'none'}});
+  map.addLayer({id: "m21a", source: "m21a", type: "raster", paint: {}, style: {}});
+  map.addLayer({id: "w21a", source: "w21a", type: "raster", paint: {}, style: {}, "layout": {'visibility': 'none'}});
   map.addLayer({id: "r3_3", source: "r3_3", type: "raster", paint: {}, style: {}, "layout": {'visibility': 'none'}});
   map.addLayer({id: "r3_4", source: "r3_4", type: "raster", paint: {}, style: {}, "layout": {'visibility': 'none'}});
 
    //ルート追加
-  map.addSource('route_r3_1', {
+  map.addSource('route_m21a', {
     type: 'geojson',
-    data: './route/r3-1.geojson'
+    data: '../public/routes/m21a.geojson'
   });
-  map.addSource('route_r3_2', {
+  map.addSource('route_w21a', {
     type: 'geojson',
-    data: './route/r3-2.geojson',
+    data: '../public/routes/w21a.geojson',
   }); 
 /*   map.addSource('m21_3', {
     type: 'geojson',
@@ -149,9 +149,9 @@ map.on('load', () => {
   //点線じゃないからダメだった。*/
 
   map.addLayer({
-    id: 'route_r3_1',
+    id: 'route_m21a',
     type: 'line',
-    source: 'route_r3_1',
+    source: 'route_m21a',
     //"layout": {'visibility': 'none'},
     paint: {
       'line-width': 2,
@@ -168,9 +168,9 @@ map.on('load', () => {
   });
   
   map.addLayer({
-    id: 'route_r3_2',
+    id: 'route_w21a',
     type: 'line',
-    source: 'route_r3_2',
+    source: 'route_w21a',
     "layout": {'visibility': 'none'},
     paint: {
       'line-width': 2,
@@ -249,10 +249,10 @@ map.on('load', () => {
   };
 
   //reset
-  let selectedCourse = "r3_1";
-  let visibleMap = "r3_1";
+  let selectedCourse = "m21a";
+  let visibleMap = "m21a";
   let visibleRoute = "route_" + visibleMap;
-  //console.log(visibleRoute);
+  console.log(visibleRoute);
   let targetCourseCoordinates = courseCoordinates[visibleMap];
 
   hideAllLegends()

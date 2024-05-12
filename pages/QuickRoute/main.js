@@ -385,7 +385,7 @@ map.on('load', () => {
   map.addLayer({id: "r3_4", source: "r3_4", type: "raster", paint: {}, style: {}, "layout": {'visibility': 'none'}});
 
     
-    // 標高タイルソース
+ /*   // 標高タイルソース
     map.addSource("tilezen-dem", {
         type: 'raster-dem',
         tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
@@ -396,12 +396,12 @@ map.on('load', () => {
     // 標高タイルセット
     map.setTerrain({ 'source': 'tilezen-dem', 'exaggeration': 1 });
 
-    map.addControl(
+     map.addControl(
         new maplibregl.TerrainControl({
             source: 'tilezen-dem',
             exaggeration: 1,
         }),
-    );
+    ); */
 
     // ズーム・回転
     map.addControl(new maplibregl.NavigationControl());
