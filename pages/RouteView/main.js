@@ -214,7 +214,7 @@ map.on('load', () => {
       optionsHTML += "<option value='" + i + "'>" + i + "-" + (i + 1) + "</option>";
     }
     optionsHTML += "<option value='"+i+"'>"+ i + "-◎</option>";
-    secondDropdown.innerHTML = "<label><b>Leg</b></label><br><select id= 'leg'>" + optionsHTML + "</select>";
+    secondDropdown.innerHTML = "<label><b>Leg</b></label><br><select id= 'leg'>" + optionsHTML + "</select><p>レッグ毎に表示可能です</p>";
 
     document.getElementById(('leg')).addEventListener('change', function() {
       //get value
