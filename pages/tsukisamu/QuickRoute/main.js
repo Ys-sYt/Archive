@@ -357,25 +357,25 @@ map.on('load', () => {
     //地図追加
   map.addSource('r3_1', {
     type: "image",
-    url: "../public/maps/A.png",
+    url: "/tsukisamu/maps/M21A.png",
     coordinates: mapcoord,
   });
 
   map.addSource('r3_2', {
     type: "image",
-    url: "../public/maps/A.png",
+    url: "/tsukisamu/maps/A.png",
     coordinates: mapcoord
   });
 
   map.addSource('r3_3', {
     type: "image",
-    url: "../public/maps/B.png",
+    url: "/tsukisamu/maps/B.png",
     coordinates: mapcoord
   });
 
   map.addSource('r3_4', {
     type: "image",
-    url: "../public/maps/N.png",
+    url: "/tsukisamu/maps/N.png",
     coordinates: mapcoord
   });
 

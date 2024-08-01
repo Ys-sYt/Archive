@@ -6,6 +6,7 @@ const outDir = resolve(__dirname, 'dist')
 
 export default defineConfig({
     root,
+    publicDir: resolve(__dirname, 'public'), // publicディレクトリを明示的に指定
     build: {
         outDir,
         rollupOptions: {
@@ -19,13 +20,13 @@ export default defineConfig({
                 
                 // maeda
                 //maeda: resolve(root, 'maeda', 'index.html'),
-                maedaQuickRoute: resolve(root, 'maeda', 'QuickRoute', 'index.html'),
+                //maedaQuickRoute: resolve(root, 'maeda', 'QuickRoute', 'index.html'),
                 maedaRouteView: resolve(root, 'maeda', 'RouteView', 'index.html'),
                 
                 // idemitsu
                 //idemitsu: resolve(root, 'idemitsu', 'index.html'),
-                idemitsuQuickRoute: resolve(root, 'idemitsu', 'QuickRoute', 'index.html'),
-                idemitsuRouteView: resolve(root, 'idemitsu', 'RouteView', 'index.html')
+                //idemitsuQuickRoute: resolve(root, 'idemitsu', 'QuickRoute', 'index.html'),
+                //idemitsuRouteView: resolve(root, 'idemitsu', 'RouteView', 'index.html')
             }
         }
     }

@@ -46,7 +46,7 @@ map.addControl(
 //map.addControl(new FullscreenControl({container: document.querySelector('body')}));
 
 //courseCoordinates
-const courseCoordinates = {
+/* const courseCoordinates = {
   m21a: [
     
   ],
@@ -59,25 +59,25 @@ const courseCoordinates = {
   r3_4: [
 
   ]
-};
+}; */
 
 map.on('load', () => {
   //地図追加
   map.addSource('m21a', {
     type: "image",
-    url: "../public/maps/M21A.png",
+    url: "/maeda/maps/M21A.png",
     coordinates: mapcoord,
   });
 
   map.addSource('w21a', {
     type: "image",
-    url: "../public/maps/A.png",
+    url: "/maeda/maps/A.png",
     coordinates: mapcoord
   });
 
   map.addSource('r3_3', {
     type: "image",
-    url: "../public/maps/B.png",
+    url: "/maeda/maps/B.png",
     coordinates: mapcoord
   });
 

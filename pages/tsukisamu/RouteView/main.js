@@ -105,25 +105,25 @@ map.on('load', () => {
   //地図追加
   map.addSource('m21a', {
     type: "image",
-    url: "../public/maps/M21A.png",
+    url: "/tsukisamu/maps/M21A.png",
     coordinates: mapcoord,
   });
 
   map.addSource('w21a', {
     type: "image",
-    url: "../public/maps/A.png",
+    url: "/tsukisamu/maps/A.png",
     coordinates: mapcoord
   });
 
   map.addSource('r3_3', {
     type: "image",
-    url: "../public/maps/B.png",
+    url: "/tsukisamu/maps/B.png",
     coordinates: mapcoord
   });
 
   map.addSource('r3_4', {
     type: "image",
-    url: "../public/maps/N.png",
+    url: "/tsukisamu/maps/N.png",
     coordinates: mapcoord
   });
 
@@ -135,11 +135,11 @@ map.on('load', () => {
    //ルート追加
   map.addSource('route_m21a', {
     type: 'geojson',
-    data: '../public/routes/m21a.geojson'
+    data: '/tsukisamu/routes/m21a.geojson'
   });
   map.addSource('route_w21a', {
     type: 'geojson',
-    data: '../public/routes/w21a.geojson',
+    data: '/tsukisamu/routes/w21a.geojson',
   }); 
 /*   map.addSource('m21_3', {
     type: 'geojson',
