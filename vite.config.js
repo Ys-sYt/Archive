@@ -6,7 +6,9 @@ const outDir = resolve(__dirname, 'dist')
 
 export default defineConfig({
     root,
-    base: '/Archive/',
+    base: process.env.GITHUB_PAGES  // この行を追加
+        ? "Archive"            // この行を追加
+        : "./", 
     publicDir: resolve(__dirname, 'public'), // publicディレクトリを明示的に指定
     build: {
         outDir,
