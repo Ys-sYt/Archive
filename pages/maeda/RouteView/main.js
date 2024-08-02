@@ -107,7 +107,7 @@ map.on('load', () => {
   }); 
   //map.addLayer({id: 'outline', type: 'line', source: 'route_r3-1', paint: {'line-width': 0.5, 'line-color': 'black', 'line-gap-width': 2.1,'line-dasharray': [1, 1]}});
   //点線じゃないからダメだった。*/
-
+/* 
   map.addLayer({
     id: 'route_m21a',
     type: 'line',
@@ -145,7 +145,7 @@ map.on('load', () => {
       ],
       'line-dasharray': [3, 3],
     },
-  });
+  }); */
 
   //chat gpt
   // legend all off
