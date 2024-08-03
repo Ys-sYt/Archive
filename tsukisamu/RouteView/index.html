@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="manifest" href="manifest.json" />
+        <title>上位者ルートv0</title>
+        <style>
+            body { margin: 0; padding: 0; display: flex;}
+            html, body, #map { height: 100%;}
+            .map{
+                width: 75%;
+                float: left;
+            }
+            .rightpanel {
+                width: 25%;
+                float: right;
+            }
+
+            .dropdown {
+            padding: 3px 4px;
+            font: 20px/30px Arial, Helvetica, sans-serif;
+            color: black;
+            background: white;
+            background: rgba(255, 255, 255, 0.9);
+            /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
+            border-radius: 5px;
+            /*width: fit-content;*/
+            width: 100%;
+            /* position: fixed; */
+            z-index: 1;
+            }
+
+            .legend {
+            /*background-color: #fff;*/
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+/*             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10); */
+            font: 12px/14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            
+            /* position: fixed; */
+            top: 70px;
+            z-index: 1;
+            line-height: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        .square {
+            width: 15px;
+            height: 15px;
+            border: solid 1.5px #000;
+            /*border-radius: 4px;*/
+        }
+
+        .btn-square {
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            background: #000;/*ボタン色*/
+            color: #FFF;
+            border-bottom: solid 4px #627295;
+            border-radius: 3px;
+            }
+            .btn-square:active {
+            /*ボタンを押したとき*/
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);/*下に動く*/
+            border-bottom: none;/*線を消す*/
+        }
+
+        </style>     
+      <script type="module" crossorigin src="/Archive/assets/tsukisamuRouteView-9fcb65c4.js"></script>
+      <link rel="modulepreload" crossorigin href="/Archive/assets/index-c8fceb99.js">
+      <link rel="modulepreload" crossorigin href="/Archive/assets/index-c4dfeedf.js">
+      <link rel="stylesheet" href="/Archive/assets/index-d02d2a94.css">
+    </head>
+    <body style="margin: 0"> 
+        <div id="map" class="map"></div>
+
+        <div class="rightpanel">
+            <div id="selection" class="dropdown">
+                <label><b>コース</b></label><br>
+                <select id="courseSelect">
+                    <option value="m21a" selected>M21A</option>
+                    <option value="w21a">W21A</option>
+                    <option value="r3_3">B</option>
+                    <option value="r3_4">N/G</option>
+                </select>
+            </div>
+            <div id="secondDropdown"></div>
+<!--             <div id="test" class="dropdown">
+                <label><b>test</b></label><br>
+                <select id="testselection">
+                    <option value="0" selected>△1</option>
+                    <option value="1">1-2</option>
+                    <option value="2">2-3</option>
+                    <option value="3">3-4</option>
+                </select>
+            </div> -->
+            <div id="m21a" class='legend'>
+                <h2>走者</h2>
+                <div class="square" style='background-color: #ff1493; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large">Terashima</span><br>
+                <div class="square" style='background-color: #0000cd; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large">Koura</span><br>
+                <div class="square" style='background-color: #d2691e; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large;">Tagagi</span><br>
+                <div class="square" style='background-color: #8a2be2 ; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large;">Nobuhara</span><br>
+            </div>
+            <div id="w21a" class='legend'>
+                <h2>走者</h2>
+                <div class="square" style='background-color: #ff1493; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large">Satsuka</span><br>
+                <div class="square" style='background-color: #0000cd; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large">Ohto</span><br>
+                <div class="square" style='background-color: #d2691e; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large;">Saitoh</span><br>
+            </div>
+            <div id="r3_3" class='legend'>
+                <h2>走者</h2>
+                <div class="square" style='background-color: #ff1493; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large"></span><br>
+                <div class="square" style='background-color: #0000cd; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large"></span><br>
+                <div class="square" style='background-color: #d2691e; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large;"></span><br>
+            </div>
+            <div id="r3_4" class='legend'>
+                <h2>走者</h2>
+                <div class="square" style='background-color: #ff1493; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large">??</span><br>
+                <div class="square" style='background-color: #0000cd; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large">??</span><br>
+                <div class="square" style='background-color: #d2691e; display: inline-block;'>
+                </div><span style="display: inline-block; margin-left: 5px; font-size: large;">??</span><br>
+            </div>
+
+            <div id="button">
+                <h2>QuickRoute</h2>
+                <a href="../QuickRoute/index.html" class="btn-square">QuickRoute</a>
+            </div>
+
+            <div id="button">
+                <h2>FeedBack</h2>
+                <a href="https://forms.office.com/r/xHELrVfr0Z" class="btn-square">FeedBack</a>
+            </div>
+
+            <div id="button">
+                <a href="../../index.html" class="btn-square">Home</a>
+            </div>
+
+        </div>
+    </body>
+    
+    <script>
+        //PWA
+        if ('serviceWorker' in navigator)
+        navigator.serviceWorker.register('./sw.js');
+    </script>
+</html>

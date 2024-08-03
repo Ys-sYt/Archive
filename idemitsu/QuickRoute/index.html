@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ログ再生v1</title>
+        <style>
+            body { margin: 0; padding: 0; }
+            html, body, #map { height: 100%; }
+        </style>
+
+    
+      <script type="module" crossorigin src="/assets/idemitsuQuickRoute-16c1127f.js"></script>
+      <link rel="modulepreload" crossorigin href="/assets/index-c8fceb99.js">
+      <link rel="modulepreload" crossorigin href="/assets/index-66e0c920.js">
+      <link rel="stylesheet" href="/assets/index-d02d2a94.css">
+    </head>
+    <body style="margin: 0">
+        <style>
+            #map {
+            width: 75%;
+            height: 100%; /* 画面の高さいっぱいに表示する場合 */
+            float: left; /* 画面の左側に配置する場合 */
+            }
+
+
+            .map-overlay {
+                font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+                width: 25%;
+/*                 position: absolute;
+                top: 0;
+                left: 0; 
+                padding: 10px;*/
+                float: right;
+            }
+
+            .map-overlay .map-overlay-inner {
+                background-color: #fff;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                border-radius: 3px;
+                padding: 10px;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            .map-overlay h2 {
+                line-height: 24px;
+                display: block;
+                margin: 0 0 10px;
+            }
+
+            .overlay button {
+                font: 600 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+                background-color: #000;
+                color: #fff;
+                display: inline-block;
+                margin: 0;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                border-radius: 3px;
+            }
+        
+            .overlay button:hover {
+                background-color: #686b6d;
+            }
+
+            #pause::after {
+            content: 'Pause';
+            }
+
+            #pause.pause::after {
+            content: 'Play';
+            }
+
+            .slider{
+                width: 90%;
+            }
+
+            .btn-square {
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            background: #000;/*ボタン色*/
+            color: #FFF;
+            border-bottom: solid 4px #627295;
+            border-radius: 3px;
+            }
+            .btn-square:active {
+            /*ボタンを押したとき*/
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);/*下に動く*/
+            border-bottom: none;/*線を消す*/
+            }
+
+        </style>
+        
+        <div id="map" class="map"></div>
+        <div class="map-overlay top">
+            <div id="selection" class="map-overlay-inner">>
+                <h2>コース</h2>
+                <select id="courseSelect">
+                    <option value="r3_1" selected>M21</option>
+                    <option value="r3_2">A</option>
+                    <option value="r3_3">B</option>
+                    <option value="r3_4">N/G</option>
+                </select>
+            </div>
+
+            <div class="map-overlay-inner">
+                <h2>軌跡データ選択</h2>
+                <input type="file" id="file-input" accept=".gpx">
+                <p>おそらくガーミンのGPX以外ではエラーがでます</p>
+            </div>
+
+            <div class="map-overlay-inner">
+                <h2>軌跡の透明度</h2>
+                <input id="sliderLineOpacity" class = "slider" type="range" min="0" max="1" step="0.05" value="0.8"/>
+            </div>
+
+            <div class="map-overlay-inner">
+                <h2>軌跡の太さ</h2>
+                <input id="sliderLinewidth" class = "slider" type="range" min="1" max="15" step="0.1" value="3"/>
+            </div>
+
+            <div class="map-overlay-inner">
+                <h2>ルートリプレイ機能</h2>
+                <div class="overlay">
+                    <button id="replay">Replay</button>
+                    <p>ルートが表示できればアニメーション機能が作動するはずです</p>
+                </div>
+            </div>
+
+            <div id="button">
+                <h2>Route View</h2>
+                <a href="../RouteView/index.html" class="btn-square">Route view</a>
+            </div>
+
+            <div id="button">
+                <h2>FeedBack</h2>
+                <a href="https://forms.office.com/r/xHELrVfr0Z" class="btn-square">FeedBack</a>
+            </div>
+
+            <div id="button">
+                <a href="../index.html" class="btn-square">Home</a>
+            </div>
+        </div>
+
+        
+        <!-- <script>
+            //chatGPT, ドラッグされたのを確認済み、main.jsと統合する
+        const dropzone = document.getElementById('map');
+
+        dropzone.addEventListener('dragover', function(e) {
+            e.preventDefault(); // デフォルトのドラッグ＆ドロップ処理を無効にする
+            dropzone.classList.add('dragover'); // ドラッグオーバー時のスタイルを適用
+        });
+
+        dropzone.addEventListener('dragleave', function(e) {
+            dropzone.classList.remove('dragover'); // ドラッグオーバー終了時のスタイルを解除
+        });
+
+        dropzone.addEventListener('drop', function(e) {
+            e.preventDefault(); // デフォルトのドラッグ＆ドロップ処理を無効にする
+            dropzone.classList.remove('dragover'); // ドラッグオーバー時のスタイルを解除
+
+            const file = e.dataTransfer.files[0]; // ドロップされたファイルを取得
+            // ここでファイルを読み込む処理を記述する
+            console.log('ファイルがドロップされました:', file);
+        });
+        </script>    -->
+    </body>
+    
+</html>
