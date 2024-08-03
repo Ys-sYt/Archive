@@ -352,30 +352,38 @@ routewidth.addEventListener('input', function(){
 
 //3Dテレイン&コントロール
 //https://qiita.com/shi-works/items/2d712456ccc91320cd1d
+
+const basePath = import.meta.env.BASE_URL;
+const imagePath_m21 = `${basePath}tsukisamu/maps/M21A.png`;
+const imagePath_w21 = `${basePath}tsukisamu/maps/A.png`;
+const imagePath_r3_3 = `${basePath}tsukisamu/maps/B.png`;
+const imagePath_r3_4 = `${basePath}tsukisamu/maps/N.png`;
+
+
 map.on('load', () => {
     //地図追加
     //地図追加
   map.addSource('r3_1', {
     type: "image",
-    url: "/tsukisamu/maps/M21A.png",
+    url: imagePath_m21,
     coordinates: mapcoord,
   });
 
   map.addSource('r3_2', {
     type: "image",
-    url: "/tsukisamu/maps/A.png",
+    url: imagePath_w21,
     coordinates: mapcoord
   });
 
   map.addSource('r3_3', {
     type: "image",
-    url: "/tsukisamu/maps/B.png",
+    url: imagePath_r3_3,
     coordinates: mapcoord
   });
 
   map.addSource('r3_4', {
     type: "image",
-    url: "/tsukisamu/maps/N.png",
+    url: imagePath_r3_4,
     coordinates: mapcoord
   });
 

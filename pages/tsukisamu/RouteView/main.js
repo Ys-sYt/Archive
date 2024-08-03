@@ -101,29 +101,38 @@ const courseCoordinates = {
   ]
 };
 
+const basePath = import.meta.env.BASE_URL;
+const imagePath_m21 = `${basePath}tsukisamu/maps/M21A.png`;
+const imagePath_w21 = `${basePath}tsukisamu/maps/A.png`;
+const imagePath_r3_3 = `${basePath}tsukisamu/maps/B.png`;
+const imagePath_r3_4 = `${basePath}tsukisamu/maps/N.png`;
+const routePath_m21 = `${basePath}tsukisamu/routes/m21a.geojson`;
+const routePath_w21 = `${basePath}tsukisamu/routes/w21a.geojson`;
+//console.log(imagePath);
+
 map.on('load', () => {
   //地図追加
   map.addSource('m21a', {
     type: "image",
-    url: "/tsukisamu/maps/M21A.png",
+    url: imagePath_m21,
     coordinates: mapcoord,
   });
 
   map.addSource('w21a', {
     type: "image",
-    url: "/tsukisamu/maps/A.png",
+    url: imagePath_w21,
     coordinates: mapcoord
   });
 
   map.addSource('r3_3', {
     type: "image",
-    url: "/tsukisamu/maps/B.png",
+    url: imagePath_r3_3,
     coordinates: mapcoord
   });
 
   map.addSource('r3_4', {
     type: "image",
-    url: "/tsukisamu/maps/N.png",
+    url: imagePath_r3_4,
     coordinates: mapcoord
   });
 
@@ -135,11 +144,11 @@ map.on('load', () => {
    //ルート追加
   map.addSource('route_m21a', {
     type: 'geojson',
-    data: '/tsukisamu/routes/m21a.geojson'
+    data: routePath_m21
   });
   map.addSource('route_w21a', {
     type: 'geojson',
-    data: '/tsukisamu/routes/w21a.geojson',
+    data: routePath_w21,
   }); 
 /*   map.addSource('m21_3', {
     type: 'geojson',

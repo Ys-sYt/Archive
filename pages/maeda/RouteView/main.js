@@ -21,6 +21,14 @@ const point1 = point(mapcoord[2]);
 const point2 = point(mapcoord[1]) ;
 var turfbearing = bearing(point1, point2);
 
+const basePath = import.meta.env.BASE_URL;
+const imagePath_m21 = `${basePath}maeda/maps/M21A.png`;
+const imagePath_w21 = `${basePath}maeda/maps/A.png`;
+const imagePath_r3_3 = `${basePath}maeda/maps/B.png`;
+console.log(imagePath_m21);
+console.log(imagePath_w21);
+console.log(imagePath_r3_3);
+
 const map =  new maplibregl.Map({
   container: 'map',
   style: 'https://gsi-cyberjapan.github.io/gsivectortile-mapbox-gl-js/std.json', 
@@ -61,23 +69,26 @@ map.addControl(
   ]
 }; */
 
+
+
+
 map.on('load', () => {
   //地図追加
   map.addSource('m21a', {
     type: "image",
-    url: "/maeda/maps/M21A.png",
+    url: imagePath_m21,
     coordinates: mapcoord,
   });
 
   map.addSource('w21a', {
     type: "image",
-    url: "/maeda/maps/A.png",
+    url: imagePath_w21,
     coordinates: mapcoord
   });
 
   map.addSource('r3_3', {
     type: "image",
-    url: "/maeda/maps/B.png",
+    url: imagePath_r3_3,
     coordinates: mapcoord
   });
 
@@ -149,24 +160,24 @@ map.on('load', () => {
 
   //chat gpt
   // legend all off
-  function hideAllLegends() {
+/*   function hideAllLegends() {
     var allLegends = document.querySelectorAll('.legend');
     allLegends.forEach(function(legend) {
         legend.style.display = 'none';
     });
-  }
+  } */
 
   // show selected legend
-  function showSelectedLegend(selectedCourse) {
+/*   function showSelectedLegend(selectedCourse) {
     var legendToShow = document.getElementById(selectedCourse);
     if (legendToShow) {
         legendToShow.style.display = 'block'; // もしくは 'inline-block' など、適切な表示方法に応じて設定
     }
-  }
+  } */
 
   //chatGPT
   //function to create options depending on 
-  function updateSecondDropdown(targetCourseCoordinates) {
+ /*  function updateSecondDropdown(targetCourseCoordinates) {
     length = targetCourseCoordinates.length-3;
     var optionsHTML = "<option value='99'>All</option>";
     optionsHTML += "<option value='0'>△-1</option>";
@@ -207,18 +218,18 @@ map.on('load', () => {
         }
       }
     )
-  };
+  }; */
 
   //reset
   let selectedCourse = "m21a";
   let visibleMap = "m21a";
-  let visibleRoute = "route_" + visibleMap;
-  console.log(visibleRoute);
-  let targetCourseCoordinates = courseCoordinates[visibleMap];
+  //let visibleRoute = "route_" + visibleMap;
+  //console.log(visibleRoute);
+  //let targetCourseCoordinates = courseCoordinates[visibleMap];
 
-  hideAllLegends()
-  showSelectedLegend(visibleMap); 
-  updateSecondDropdown(targetCourseCoordinates);
+  //hideAllLegends()
+  //showSelectedLegend(visibleMap); 
+  //updateSecondDropdown(targetCourseCoordinates);
 
   //event lister, detecting chaning pul-down
   document.getElementById(('courseSelect')).addEventListener('change', function() {
@@ -226,26 +237,26 @@ map.on('load', () => {
     map.setLayoutProperty(visibleMap, 'visibility', 'none');
 
     //turn off visible route
-    map.setLayoutProperty(visibleRoute, 'visibility', 'none');
+    //map.setLayoutProperty(visibleRoute, 'visibility', 'none');
     
     //store selected value
     selectedCourse = this.value;
-    visibleRoute = "route_"+selectedCourse;
+    //visibleRoute = "route_"+selectedCourse;
 
     //make selected map visible
     map.setLayoutProperty(selectedCourse, 'visibility', 'visible');
-    map.setLayoutProperty(visibleRoute, 'visibility', 'visible');
+    //map.setLayoutProperty(visibleRoute, 'visibility', 'visible');
   
     visibleMap = selectedCourse;    
     
-    hideAllLegends(); // hide all legend
-    showSelectedLegend(selectedCourse); //show selected legend
+    //hideAllLegends(); // hide all legend
+    //showSelectedLegend(selectedCourse); //show selected legend
 
     
     //LEG
-    targetCourseCoordinates = courseCoordinates[selectedCourse];
+    //targetCourseCoordinates = courseCoordinates[selectedCourse];
     //console.log(targetCourseCoordinates);
-    updateSecondDropdown(targetCourseCoordinates); //creating pul-down&event listner
+    //updateSecondDropdown(targetCourseCoordinates); //creating pul-down&event listner
   });
 });
 
